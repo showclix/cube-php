@@ -17,13 +17,15 @@
         'step' => \Cube\Client::INT_ONE_MINUTE,
         'limit' => 100,
     ));
+
+    echo "There were {$res[0]['value']} hits during {$res[0]['time']}";
 ```
 
 # Install
 
 Via composer
 
-    composer.phar install ShowClix/cube-php
+    composer.phar install showclix/cube-php
 
 # Todo
 
