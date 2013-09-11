@@ -5,7 +5,7 @@ Cube Client that supports communicating with a [Cube](https://github.com/square/
 # Usage
 
 ```php
-    // Create a Client that uses Http protocol to connect to localhost:1081
+    // Create a Client pointed at a local collector and evaluator
     $client = \Cube\Client::createHttpClient(array(
         'collector' => array(
             'host' => 'localhost',
@@ -32,10 +32,6 @@ Cube Client that supports communicating with a [Cube](https://github.com/square/
 Via composer
 
     composer.phar install showclix/cube-php
-
-# Limitations
-
-Currently only supports the HTTP Cube interface.  The web socket and udp interfaces have not been implemented.
 
 # Todo
 
