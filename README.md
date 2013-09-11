@@ -1,6 +1,6 @@
 # Cube Client for PHP
 
-*This is really green.  There may be some major over hauls to this in the future.*
+Cube Client that supports communicating with a [Cube](https://github.com/square/cube) collector and evaluator.
 
 # Usage
 
@@ -33,7 +33,12 @@ Via composer
 
     composer.phar install showclix/cube-php
 
+# Limitations
+
+Currently only supports the HTTP Cube interface.  The web socket and udp interfaces have not been implemented.
+
 # Todo
 
- - Implement the \Cube\Connection\WebSocketConnection
- - Implement the \Cube\Connection\UdpConnection
+ - Implement \Cube\Connection\WebSocketConnection
+ - Implement \Cube\Connection\UdpConnection
+ - Add Travis CI Integaration complete with hooks to setup and install Cube/Mongo
