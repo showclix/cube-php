@@ -21,7 +21,7 @@ abstract class Connection {
     {
         $this->pre($command, $args);
         $result = call_user_func(array($this, $command), $args);
-        $this->pre($command, $args, $result);
+        $this->post($command, $args, $result);
         return $result;
     }
 
@@ -79,15 +79,6 @@ abstract class Connection {
      * @return array
      */
     public function eventPut($args)
-    {
-        throw new \Cube\Exception\UnsupportedMethodException();
-    }
-
-    /**
-     * @param array $args
-     * @return array
-     */
-    public function collectd($args)
     {
         throw new \Cube\Exception\UnsupportedMethodException();
     }

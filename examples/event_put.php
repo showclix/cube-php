@@ -15,10 +15,12 @@ $client = \Cube\Client::createHttpClient(array(
     )
 ));
 
-$res = $client->metricGet(array(
-    'expression' => 'sum(cube_request)',
-    'step' => \Cube\Client::INT_ONE_MINUTE,
-    'limit' => 100,
+$res = $client->eventPut(array(
+    'type' => 'example',
+    'time' => time(),
+    'data' => array(
+        'key1' => 'value1',
+    ),
 ));
 
 echo "There were {$res[0]['value']} hits during {$res[0]['time']}" . PHP_EOL;

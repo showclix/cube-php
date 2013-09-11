@@ -7,8 +7,14 @@
 ```php
     // Create a Client that uses Http protocol to connect to localhost:1081
     $client = \Cube\Client::createHttpClient(array(
-        'host' => 'localhost',
-        'port' => 1081,
+        'collector' => array(
+            'host' => 'localhost',
+            'port' => 1080,
+        ),
+        'evaluator' => array(
+            'host' => 'localhost',
+            'port' => 1081,
+        ),
         'secure' => true,
     ));
 
@@ -29,7 +35,5 @@ Via composer
 
 # Todo
 
- - Implement the \Cube\Connection\WebSocketConnection and \Cube\Connection\UdpConnection.
- - Implement collectd and eventPut for \HttpConnection
- - Add more test coverage
- - Make tests a bit less brittle when it comes to relying on Cube at a certain host/port with a certain data set
+ - Implement the \Cube\Connection\WebSocketConnection
+ - Implement the \Cube\Connection\UdpConnection

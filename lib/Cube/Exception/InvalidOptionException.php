@@ -1,3 +1,3 @@
 <?php
-namespace \Cube\Exception;
-class InvalidOptionException extends Exception {}
+namespace Cube\Exception;
+class InvalidOptionException extends \Exception {}

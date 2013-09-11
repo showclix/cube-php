@@ -7,9 +7,10 @@ require dirname(__DIR__) . '/vendor/autoload.php';
 
 class CubeTest extends \PHPUnit_Framework_TestCase
 {
+
     public function testCommand()
     {
-        $cmds = array('eventGet','metricGet','typesGet','eventPut','collectdPut');
+        $cmds = array('eventGet','metricGet','typesGet','eventPut');
         $this->assertEquals($cmds, \Cube\Command::getCommands());
     }
 
@@ -43,12 +44,32 @@ class CubeTest extends \PHPUnit_Framework_TestCase
         $this->assertInternalType('array', $res);
     }
 
+    /**
+     * @dataProvider createHttpClient
+     */
+    public function testEventPut($client)
+    {
+        $res = $client->eventPut(array(
+            'type' => 'test',
+            'time' => time(),
+            'data' => array('example_key' => 'example_value'),
+        ));
+        $this->assertInternalType('array', $res);
+        $this->assertArrayNotHasKey('error', $res);
+    }
+
     public function createHttpClient()
     {
         $client = \Cube\Client::createHttpClient(array(
-            'host' => 'localhost',
-            'port' => 1081,
             'secure' => false,
+            'collector' => array(
+                'host' => 'localhost',
+                'port' => 1080,
+            ),
+            'evaluator' => array(
+                'host' => 'localhost',
+                'port' => 1081,
+            )
         ));
         return array(
             array($client),
