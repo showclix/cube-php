@@ -14,7 +14,7 @@
     ],
     "require": {
         "php": ">=5.3",
-        "nategood/httpful": "dev-master"
+        "nategood/httpful": "*"
     },
     "autoload": {
         "psr-0": {"Cube": "lib"}
