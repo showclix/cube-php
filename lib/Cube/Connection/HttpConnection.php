@@ -39,7 +39,7 @@ class HttpConnection extends \Cube\Connection\Connection {
     }
 
     /**
-     * @return array associative array response
+     * @return array of all types currently in cube
      * @param array not applicable
      */
     public function typesGet($args = null)
@@ -60,7 +60,11 @@ class HttpConnection extends \Cube\Connection\Connection {
             ->expectsJson()
             ->body($args);
         $res = $req->send();
-        return $res->body;
+        if (array_key_exists('error', $res->body)) {
+             // optionally log error? maybe throw exception?
+            return false;
+        }
+        return true;
     }
 
     private function send($url)

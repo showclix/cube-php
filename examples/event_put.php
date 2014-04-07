@@ -22,5 +22,3 @@ $res = $client->eventPut(array(
         'key1' => 'value1',
     ),
 ));
-
-echo "There were {$res[0]['value']} hits during {$res[0]['time']}" . PHP_EOL;

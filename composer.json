@@ -4,7 +4,7 @@
     "homepage": "http://github.com/ShowClix/cube-php",
     "license": "MIT",
     "keywords": ["cube", "analytics"],
-    "version": "0.1.0",
+    "version": "0.1.1",
     "authors": [
         {
             "name": "Nate Good",
