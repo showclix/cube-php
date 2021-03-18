@@ -56,6 +56,7 @@ class HttpConnection extends \Cube\Connection\Connection {
     {
         $args = \Cube\Command::prepPayload($args);
         $req = \Httpful\Request::post($this->collector_uri . '1.0/event/put')
+            ->timeout(3)
             ->sendsJson()
             ->expectsJson()
             ->body($args);
